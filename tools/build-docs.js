@@ -1,0 +1,17 @@
+// node tools/build-docs.js : создаёт папки assets/horse/* (.gitkeep) + ASSETS.md + GENES.md из manifest/genes
+const fs=require('fs'),path=require('path'),R=require('../js/renderer.js'),H=require('../js/genetics.js'),M=require('../assets/manifest.js');require('../js/health.js');
+const root=path.join(__dirname,'..');let a='# PNG assets\n\n**Layer order, bottom to top:** '+Object.keys(M.slots).join(' → ')+'\n\nCanvas: '+M.canvas.w+'x'+M.canvas.h+' px, transparent PNG, identical size/anchor for every file. Edit paths in `assets/manifest.js`.\n\nBreed folders: Riding horse uses `assets/horse/`. Draft, Show, Pony and Mule look first in `assets/draft/`, `assets/show/`, `assets/pony/`, `assets/mule/` (same relative paths as under `assets/horse/`) and fall back to `assets/horse/`. Donkey art lives in `assets/donkey/`.\n\n| Key | File | Slot | Used when |\n|---|---|---|---|\n';
+const when=k=>({base:'base colour',mane:'mane colour',tail:'tail colour',dil:'dilution gene present',pat:'white/grey/leopard pattern selected',prim:'primitive marking toggled (D or nd1)',face:'face marking',leg:'leg marking',det:'detail/skin toggle',eye:'eye option (colour + variant)',coat:'coat length overlay: short / medium / long (optional art)',manespot:'white spots on the mane, per mane look 1-8 (optional)',tailspot:'white spots on the tail, per tail look 1-8 (optional)',line:'outline layer (optional); mane and tail lines exist per look 1-8',dk:'donkey art',bg:'background picture, drawn first under the horse (optional)'}[k.split('.')[0]]);
+for(const[k,p]of Object.entries(M.files)){a+='| `'+k+'` | `'+p+'` | '+(k==='bg.default'?'background (under everything)':(R.slotOf(M,k)||{}).slot||'?')+' | '+when(k)+(R.isOptional(M,k)?' (optional)':'')+' |\n';fs.mkdirSync(path.join(root,path.dirname(p)),{recursive:true});fs.writeFileSync(path.join(root,path.dirname(p),'.gitkeep'),'')}
+for(const[k,p]of Object.entries(M.icons)){a+='| `ui.'+k+'` | `'+p+'` | - | category tab icon (~96x96) |\n';fs.mkdirSync(path.join(root,path.dirname(p)),{recursive:true});fs.writeFileSync(path.join(root,path.dirname(p),'.gitkeep'),'')}
+for(const d of Object.values(M.dirs)){fs.mkdirSync(path.join(root,d),{recursive:true});fs.writeFileSync(path.join(root,d,'.gitkeep'),'')}
+a+='\n## Neutral PNGs for programmatic recolouring (optional)\n\nA dedicated PNG for a key always wins. If it is missing, the neutral grey PNG is multiplied with the colour from `MANIFEST.palette`.\n\n| Key | Neutral PNG | Colour |\n|---|---|---|\n';
+for(const[k,tn]of Object.entries(M.tint))a+='| `'+k+'` | `'+tn.src+'` | `'+tn.color+'` |\n';
+fs.writeFileSync(path.join(root,'ASSETS.md'),a);
+let g='# Genes\n\n## Fixed serialization order\n\n| # | Locus | Alleles | Inheritance | Visible effect | Restrictions |\n|---|---|---|---|---|---|\n';
+H.LOCI.forEach((l,i)=>g+=`| ${i+1} | ${l.name} | ${l.al.join(', ')} | ${l.inh} | ${l.eff} | ${Object.entries(l.restrict).map(([k,v])=>k+': '+v).join('; ')||'-'} |\n`);
+g+='\n## Health flags\n\n| Condition | Genotype | Kind | Severity | Note |\n|---|---|---|---|---|\n';
+H.HEALTH.forEach(h=>g+=`| ${h.name} | ${h.genotype} | ${h.kind} | ${h.severity} | ${h.text} |\n`);
+g+='\n## Donkey loci (simplified editor model; real donkey colour genetics are less established)\n\n| Locus | Allowed pairs | Effect |\n|---|---|---|\n';
+H.DK.forEach(l=>g+=`| ${l.name} | ${(l.opts||H.pairs(l).map(p=>p.join('/'))).join(', ')} | ${l.eff} |\n`);
+fs.writeFileSync(path.join(root,'GENES.md'),g);console.log(Object.keys(M.files).length+' asset slots');
