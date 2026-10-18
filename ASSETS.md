@@ -1,6 +1,6 @@
 # PNG assets
 
-**Layer order, bottom to top:** tail_color → tail_spots → tail_line → base → coat → dilution → pattern → marking → eyes → body_line → mane_color → mane_spots → mane_line
+**Layer order, bottom to top:** tail_color → tail_spots → tail_line → base → coat → dilution → pattern → marking → eyes → body_line → mane_color → mane_spots → mane_line → gear_legs → gear_blanket → gear_cover → gear_pad → gear_saddle → gear_harness → gear_breast → gear_plate → gear_head → gear_bridle → gear_noseband → gear_blinkers → gear_reins
 
 Canvas: 1600x1000 px, transparent PNG, identical size/anchor for every file. Edit paths in `assets/manifest.js`.
 
@@ -505,6 +505,106 @@ Breed folders: Riding horse uses `assets/horse/`. Draft, Show, Pony and Mule loo
 | `dk.line.body` | `assets/donkey/line/body.png` | body_line | donkey art (optional) |
 | `dk.line.mane` | `assets/donkey/line/mane.png` | mane_line | donkey art (optional) |
 | `dk.line.tail` | `assets/donkey/line/tail.png` | tail_line | donkey art (optional) |
+| `gear.saddle_english` | `assets/horse/gear/saddle/english.png` | gear_saddle | tack & gear item |
+| `gear.saddle_dressage` | `assets/horse/gear/saddle/dressage.png` | gear_saddle | tack & gear item |
+| `gear.saddle_jumping` | `assets/horse/gear/saddle/jumping.png` | gear_saddle | tack & gear item |
+| `gear.saddle_western` | `assets/horse/gear/saddle/western.png` | gear_saddle | tack & gear item |
+| `gear.saddle_endurance` | `assets/horse/gear/saddle/endurance.png` | gear_saddle | tack & gear item |
+| `gear.saddle_racing` | `assets/horse/gear/saddle/racing.png` | gear_saddle | tack & gear item |
+| `gear.saddle_sidesaddle` | `assets/horse/gear/saddle/sidesaddle.png` | gear_saddle | tack & gear item |
+| `gear.saddle_medieval` | `assets/horse/gear/saddle/medieval.png` | gear_saddle | tack & gear item |
+| `gear.saddle_pack` | `assets/horse/gear/saddle/pack.png` | gear_saddle | tack & gear item |
+| `gear.harness_breast_collar_harness` | `assets/horse/gear/harness/breast_collar_harness.png` | gear_harness | tack & gear item |
+| `gear.harness_collar_hames_harness` | `assets/horse/gear/harness/collar_hames_harness.png` | gear_harness | tack & gear item |
+| `gear.harness_pair_harness` | `assets/horse/gear/harness/pair_harness.png` | gear_harness | tack & gear item |
+| `gear.harness_show_harness` | `assets/horse/gear/harness/show_harness.png` | gear_harness | tack & gear item |
+| `gear.harness_plough_harness` | `assets/horse/gear/harness/plough_harness.png` | gear_harness | tack & gear item |
+| `gear.pad_numnah` | `assets/horse/gear/pad/numnah.png` | gear_pad | tack & gear item |
+| `gear.pad_dressage_pad` | `assets/horse/gear/pad/dressage_pad.png` | gear_pad | tack & gear item |
+| `gear.pad_jumping_pad` | `assets/horse/gear/pad/jumping_pad.png` | gear_pad | tack & gear item |
+| `gear.pad_western_blanket` | `assets/horse/gear/pad/western_blanket.png` | gear_pad | tack & gear item |
+| `gear.pad_sheepskin` | `assets/horse/gear/pad/sheepskin.png` | gear_pad | tack & gear item |
+| `gear.pad_gel_half_pad` | `assets/horse/gear/pad/gel_half_pad.png` | gear_pad | tack & gear item |
+| `gear.bridle_english` | `assets/horse/gear/bridle/english.png` | gear_bridle | tack & gear item |
+| `gear.bridle_western` | `assets/horse/gear/bridle/western.png` | gear_bridle | tack & gear item |
+| `gear.bridle_hackamore` | `assets/horse/gear/bridle/hackamore.png` | gear_bridle | tack & gear item |
+| `gear.bridle_halter` | `assets/horse/gear/bridle/halter.png` | gear_bridle | tack & gear item |
+| `gear.bridle_driving` | `assets/horse/gear/bridle/driving.png` | gear_bridle | tack & gear item |
+| `gear.noseband_cavesson` | `assets/horse/gear/noseband/cavesson.png` | gear_noseband | tack & gear item |
+| `gear.noseband_flash` | `assets/horse/gear/noseband/flash.png` | gear_noseband | tack & gear item |
+| `gear.noseband_drop` | `assets/horse/gear/noseband/drop.png` | gear_noseband | tack & gear item |
+| `gear.noseband_grackle` | `assets/horse/gear/noseband/grackle.png` | gear_noseband | tack & gear item |
+| `gear.blinkers_blinkers` | `assets/horse/gear/blinkers/blinkers.png` | gear_blinkers | tack & gear item |
+| `gear.blinkers_winkers` | `assets/horse/gear/blinkers/winkers.png` | gear_blinkers | tack & gear item |
+| `gear.blinkers_racing_hood` | `assets/horse/gear/blinkers/racing_hood.png` | gear_blinkers | tack & gear item |
+| `gear.reins_english` | `assets/horse/gear/reins/english.png` | gear_reins | tack & gear item |
+| `gear.reins_western_split` | `assets/horse/gear/reins/western_split.png` | gear_reins | tack & gear item |
+| `gear.reins_driving_lines` | `assets/horse/gear/reins/driving_lines.png` | gear_reins | tack & gear item |
+| `gear.reins_rope` | `assets/horse/gear/reins/rope.png` | gear_reins | tack & gear item |
+| `gear.breast_hunting_breastplate` | `assets/horse/gear/breast/hunting_breastplate.png` | gear_breast | tack & gear item |
+| `gear.breast_elastic_breastplate` | `assets/horse/gear/breast/elastic_breastplate.png` | gear_breast | tack & gear item |
+| `gear.breast_western_breast_collar` | `assets/horse/gear/breast/western_breast_collar.png` | gear_breast | tack & gear item |
+| `gear.breast_running_martingale` | `assets/horse/gear/breast/running_martingale.png` | gear_breast | tack & gear item |
+| `gear.breast_standing_martingale` | `assets/horse/gear/breast/standing_martingale.png` | gear_breast | tack & gear item |
+| `gear.breast_tie_down` | `assets/horse/gear/breast/tie_down.png` | gear_breast | tack & gear item |
+| `gear.blanket_turnout_rug` | `assets/horse/gear/blanket/turnout_rug.png` | gear_blanket | tack & gear item |
+| `gear.blanket_stable_rug` | `assets/horse/gear/blanket/stable_rug.png` | gear_blanket | tack & gear item |
+| `gear.blanket_cooler` | `assets/horse/gear/blanket/cooler.png` | gear_blanket | tack & gear item |
+| `gear.blanket_fly_sheet` | `assets/horse/gear/blanket/fly_sheet.png` | gear_blanket | tack & gear item |
+| `gear.blanket_fly_rug_neck` | `assets/horse/gear/blanket/fly_rug_neck.png` | gear_blanket | tack & gear item |
+| `gear.blanket_rain_sheet` | `assets/horse/gear/blanket/rain_sheet.png` | gear_blanket | tack & gear item |
+| `gear.blanket_quarter_sheet` | `assets/horse/gear/blanket/quarter_sheet.png` | gear_blanket | tack & gear item |
+| `gear.head_fly_mask` | `assets/horse/gear/head/fly_mask.png` | gear_head | tack & gear item |
+| `gear.head_fly_mask_ears` | `assets/horse/gear/head/fly_mask_ears.png` | gear_head | tack & gear item |
+| `gear.head_ear_bonnet` | `assets/horse/gear/head/ear_bonnet.png` | gear_head | tack & gear item |
+| `gear.cover_heraldic_caparison` | `assets/horse/gear/cover/heraldic_caparison.png` | gear_cover | tack & gear item |
+| `gear.cover_tournament_trapper` | `assets/horse/gear/cover/tournament_trapper.png` | gear_cover | tack & gear item |
+| `gear.plate_chanfron` | `assets/horse/gear/plate/chanfron.png` | gear_plate | tack & gear item |
+| `gear.plate_crinet` | `assets/horse/gear/plate/crinet.png` | gear_plate | tack & gear item |
+| `gear.plate_peytral` | `assets/horse/gear/plate/peytral.png` | gear_plate | tack & gear item |
+| `gear.plate_flanchards` | `assets/horse/gear/plate/flanchards.png` | gear_plate | tack & gear item |
+| `gear.plate_crupper_plate` | `assets/horse/gear/plate/crupper_plate.png` | gear_plate | tack & gear item |
+| `gear.plate_mail_barding` | `assets/horse/gear/plate/mail_barding.png` | gear_plate | tack & gear item |
+| `gear.legs_brushing_boots_front_left` | `assets/horse/gear/legs/brushing_boots_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_brushing_boots_front_right` | `assets/horse/gear/legs/brushing_boots_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_brushing_boots_hind_left` | `assets/horse/gear/legs/brushing_boots_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_brushing_boots_hind_right` | `assets/horse/gear/legs/brushing_boots_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_tendon_boots_front_left` | `assets/horse/gear/legs/tendon_boots_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_tendon_boots_front_right` | `assets/horse/gear/legs/tendon_boots_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_tendon_boots_hind_left` | `assets/horse/gear/legs/tendon_boots_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_tendon_boots_hind_right` | `assets/horse/gear/legs/tendon_boots_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_open_front_boots_front_left` | `assets/horse/gear/legs/open_front_boots_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_open_front_boots_front_right` | `assets/horse/gear/legs/open_front_boots_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_open_front_boots_hind_left` | `assets/horse/gear/legs/open_front_boots_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_open_front_boots_hind_right` | `assets/horse/gear/legs/open_front_boots_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_bell_boots_front_left` | `assets/horse/gear/legs/bell_boots_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_bell_boots_front_right` | `assets/horse/gear/legs/bell_boots_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_bell_boots_hind_left` | `assets/horse/gear/legs/bell_boots_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_bell_boots_hind_right` | `assets/horse/gear/legs/bell_boots_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_polo_wraps_front_left` | `assets/horse/gear/legs/polo_wraps_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_polo_wraps_front_right` | `assets/horse/gear/legs/polo_wraps_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_polo_wraps_hind_left` | `assets/horse/gear/legs/polo_wraps_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_polo_wraps_hind_right` | `assets/horse/gear/legs/polo_wraps_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_stable_bandages_front_left` | `assets/horse/gear/legs/stable_bandages_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_stable_bandages_front_right` | `assets/horse/gear/legs/stable_bandages_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_stable_bandages_hind_left` | `assets/horse/gear/legs/stable_bandages_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_stable_bandages_hind_right` | `assets/horse/gear/legs/stable_bandages_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_fly_boots_front_left` | `assets/horse/gear/legs/fly_boots_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_fly_boots_front_right` | `assets/horse/gear/legs/fly_boots_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_fly_boots_hind_left` | `assets/horse/gear/legs/fly_boots_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_fly_boots_hind_right` | `assets/horse/gear/legs/fly_boots_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_hoof_boots_front_left` | `assets/horse/gear/legs/hoof_boots_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_hoof_boots_front_right` | `assets/horse/gear/legs/hoof_boots_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_hoof_boots_hind_left` | `assets/horse/gear/legs/hoof_boots_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_hoof_boots_hind_right` | `assets/horse/gear/legs/hoof_boots_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_knee_boots_front_left` | `assets/horse/gear/legs/knee_boots_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_knee_boots_front_right` | `assets/horse/gear/legs/knee_boots_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_knee_boots_hind_left` | `assets/horse/gear/legs/knee_boots_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_knee_boots_hind_right` | `assets/horse/gear/legs/knee_boots_hind_right.png` | gear_legs | tack & gear item |
+| `gear.legs_hock_boots_front_left` | `assets/horse/gear/legs/hock_boots_front_left.png` | gear_legs | tack & gear item |
+| `gear.legs_hock_boots_front_right` | `assets/horse/gear/legs/hock_boots_front_right.png` | gear_legs | tack & gear item |
+| `gear.legs_hock_boots_hind_left` | `assets/horse/gear/legs/hock_boots_hind_left.png` | gear_legs | tack & gear item |
+| `gear.legs_hock_boots_hind_right` | `assets/horse/gear/legs/hock_boots_hind_right.png` | gear_legs | tack & gear item |
 | `ui.breed` | `assets/ui/cat_breed.png` | - | category tab icon (~96x96) |
 | `ui.coat` | `assets/ui/cat_coat.png` | - | category tab icon (~96x96) |
 | `ui.base` | `assets/ui/cat_base.png` | - | category tab icon (~96x96) |
@@ -516,6 +616,7 @@ Breed folders: Riding horse uses `assets/horse/`. Draft, Show, Pony and Mule loo
 | `ui.spots` | `assets/ui/cat_spots.png` | - | category tab icon (~96x96) |
 | `ui.prim` | `assets/ui/cat_prim.png` | - | category tab icon (~96x96) |
 | `ui.eyes` | `assets/ui/cat_eyes.png` | - | category tab icon (~96x96) |
+| `ui.gear` | `assets/ui/cat_gear.png` | - | category tab icon (~96x96) |
 | `ui.dcol` | `assets/ui/cat_dcol.png` | - | category tab icon (~96x96) |
 | `ui.dprim` | `assets/ui/cat_dprim.png` | - | category tab icon (~96x96) |
 | `ui.dwhite` | `assets/ui/cat_dwhite.png` | - | category tab icon (~96x96) |
@@ -665,3 +766,7 @@ A dedicated PNG for a key always wins. If it is missing, the neutral grey PNG is
 | `dk.base.dark_brown` | `assets/donkey/base/neutral.png` | `#3c2b24` |
 | `dk.base.black` | `assets/donkey/base/neutral.png` | `#1f1a1b` |
 | `dk.base.light_sandy` | `assets/donkey/base/neutral.png` | `#c2a77f` |
+
+## Recolourable gear
+
+These layers are multiplied in code with the colour chosen in the UI (colours: `assets/gear-catalog.js`). Draw them in NEUTRAL LIGHT GREY / WHITE, with the shading you want kept: `gear.legs_*`, `gear.blanket_*`, `gear.cover_*`, `gear.pad_*`, `gear.saddle_*`, `gear.harness_*`, `gear.breast_*`, `gear.head_*`, `gear.bridle_*`, `gear.noseband_*`, `gear.blinkers_*`, `gear.reins_*`. Armour (metal) is not recoloured: draw it in its final colours. To use your own colours for a group, set `recolor:false` in the catalog.

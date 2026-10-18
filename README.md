@@ -1,4 +1,4 @@
-# Equine Coat Atelier
+# Equine Atelier
 Статичное приложение (HTML/CSS/JS, без сборки и зависимостей кроме Google Fonts).
 ## Запуск
 Откройте `index.html` двойным кликом или `python3 -m http.server`. На GitHub: Settings → Pages → ветка main. Для PNG и Export PNG лучше http(s), не file://.
@@ -60,4 +60,35 @@ assets/donkey/…
 
 **Look:** кнопки Save look / Load look сохраняют и восстанавливают только внешность (косметика + render spec). Генотип в файл не входит и не меняется.
 
-Тесты: `node tests/genetics.test.js`, `node tests/renderer.test.js` (порядок слоёв, manifest), `node tests/renderer.render.test.js` (композитор на фейковом canvas: кэш групп, перекраска, предупреждения).
+Тесты: `node tests/genetics.test.js`, `node tests/renderer.test.js` (порядок слоёв, manifest), `node tests/renderer.render.test.js` (композитор на фейковом canvas: кэш групп, перекраска, предупреждения), `node tests/gear.test.js` (каталог gear, зависимости, порядок слоёв).
+
+## Tack & gear (обмундирование) — последняя вкладка «Tack & gear»
+Чисто косметика: генотип не меняется. Каталог — `assets/gear-catalog.js` (добавить предмет = одна строка `['id','Название']`, манифест, интерфейс и ASSETS.md подхватят сами; `node tools/build-docs.js`).
+Группы (слева направо в интерфейсе): **Saddles** (English, dressage, jumping, western, endurance, racing, sidesaddle, medieval, pack), **Saddle pads** (numnah, square dressage pad, jumping pad, western blanket, sheepskin, gel half pad — «матрасы под сёдла»), **Bridles** (English, western headstall, hackamore, halter, driving), **Nosebands** («капсюль»: cavesson, flash, drop, grackle; None = уздечка без капсюля), **Blinkers** («шоры»: blinkers, winkers, racing hood; None = без шор), **Reins**, **Chest straps** (hunting / elastic breastplate, western breast collar, running / standing martingale, tie-down — «ремешки на груди»), **Rugs & sheets** (turnout, stable, cooler, fly sheet, fly rug with neck, rain sheet, quarter sheet — «халаты от насекомых» = fly sheet / fly rug), **Fly mask & bonnet**, **Knight cloth** (heraldic caparison, tournament trapper), **Armour** (chanfron, crinet, peytral, flanchards, crupper, mail barding + «Full plate set»), **Leg gear** (по ногам: brushing / tendon / open-front / bell boots, polo wraps, stable bandages, fly boots, hoof boots, knee boots — только передние, hock boots — только задние).
+Правила (в Creative снимаются): nosebands и blinkers — только с English или driving bridle; reins — только с уздечкой (не halter).
+**Порядок слоёв gear (снизу вверх, над лошадью):** leg gear → rugs → knight cloth → pads → saddle → chest straps → armour → fly mask → bridle → nosebands → blinkers → reins.
+**Арт gear:** тот же холст 1600×1000, прозрачный фон, то же положение лошади. Файл: `assets/horse/gear/<группа>/<id>.png`, ноги — `<id>_<front_left|front_right|hind_left|hind_right>.png`. Рисуйте в НЕЙТРАЛЬНОМ светло-сером/белом, цвет выбирается в интерфейсе (кожа: brown/black/tan; ткань: navy/red/green… ) и накладывается кодом; броня (`plate`) не перекрашивается — рисуйте сразу в готовых цветах. Свой цвет для группы: `recolor:false` в каталоге. Для осла/мула арт ищется в `assets/donkey/gear/…` / `assets/mule/gear/…`, затем в `assets/horse/gear/…`.
+
+## Экипировка по типам (Riding / Draft / Show / Pony / Mule / Donkey)
+Правила лежат в `rules` каталога `assets/gear-catalog.js`; таблица для всех предметов генерируется в `GEAR.md` (`node tools/build-docs.js`). «Нет*» = в обычном режиме предмет недоступен (плитка серая, подсказка «Not used with …»), в Creative открывается. При смене типа лошади недоступные предметы снимаются (под превью появляется пометка).
+
+| Экипировка | Riding | Draft | Show | Pony | Mule | Donkey |
+|---|---|---|---|---|---|---|
+| English / dressage / jumping, endurance / racing, sidesaddle | да | нет* | да | да | нет* | нет* |
+| Western saddle, medieval saddle | да | да | да | да | да | да |
+| Pack saddle | нет* | да | нет* | да | да | да |
+| Saddle pads, bridles (English / western / hackamore / halter / driving), nosebands, reins | да | да | да | да | да | да |
+| Blinkers / winkers / racing hood | да | да | да | да | нет* | нет* |
+| Chest straps / martingales | да | да | да | да | частично | частично |
+| Rugs & sheets, fly mask / bonnet, knight cloth, armour, leg gear | да | да | да | да | да | да |
+| Driving harness (сбруя, упряжь) | да | да | нет* | нет* | да | нет* |
+
+«Частично» для mule/donkey я реализовал так: breastplates и breast collar — да; running / standing martingale и tie-down — нет* (мартингалы нужны для контроля посадки головы под седлом, у вьючных их не используют). Меняется одной строкой в `rules`.
+**Driving harness** (breast-collar, collar & hames, pair, show/parade, plough) — только Riding, Draft, Mule; заменяет седло, подушку и chest straps (выбор одного убирает другие; в Creative можно вместе). Файлы: `assets/horse/gear/harness/<id>.png`.
+**Outfits by use** — кнопки на вкладке gear: Riding, Western riding, Racing, Driving (carriage), Free turnout, Show, Pack / trekking, Knight / medieval, Stable / rest, Insect protection, Clear all. Кнопка собирает целый наряд из предметов, которые разрешены для выбранного типа (например, Riding у Draft даёт western saddle); если тип вообще не может (Driving у Pony, Pack у Riding), кнопка серая.
+
+## Скрытие вместо серых кнопок и свои слоты нарядов
+- Всё, что тип лошади не использует, **не показывается** (плитки предметов, кнопки групп, кнопки нарядов, пары аллелей в Genetics, primitive markings без dun). В Creative показывается всё. Группы Nosebands / Blinkers / Reins появляются только при подходящей уздечке; knee boots видны только для передних ног, hock boots — для задних.
+- **Outfits by use — настраиваемые слоты.** Изначально это предложенные наряды (подстраиваются под тип). Нажмите наряд, измените экипировку и сохраните: **Save gear to “…”** (перезаписать слот), **Save as new outfit…** (новый слот), **Rename…**, **Delete** (свои слоты) или **Reset to suggestion** (вернуть предложенный вариант). • рядом с названием = ваша сохранённая версия. Кнопки, которые сейчас неприменимы, не показываются.
+- Если сохранённая версия не подходит текущему типу (например, English saddle у Draft), для встроенного слота применяется предложенный вариант, а свои слоты скрываются (внизу пометка «N saved outfits are hidden»).
+- Слоты хранятся в браузере (localStorage), общие для всех лошадей. **Export outfits / Import outfits** — файл `outfits.json` для переноса или резервной копии.
