@@ -2,7 +2,7 @@
 
 **Layer order, bottom to top:** tail_color → tail_spots → tail_line → base → coat → dilution → pattern → marking → eyes → body_line → mane_color → mane_spots → mane_line → gear_legs → gear_blanket → gear_cover → gear_pad → gear_saddle → gear_harness → gear_breast → gear_plate → gear_head → gear_bridle → gear_noseband → gear_blinkers → gear_reins
 
-Canvas: 1600x1000 px, transparent PNG, identical size/anchor for every file. Edit paths in `assets/manifest.js`.
+Canvas: 1079x787 px, transparent PNG, identical size/anchor for every file. Edit paths in `assets/manifest.js`.
 
 Breed folders: Riding horse uses `assets/horse/`. Draft, Show, Pony and Mule look first in `assets/draft/`, `assets/show/`, `assets/pony/`, `assets/mule/` (same relative paths as under `assets/horse/`) and fall back to `assets/horse/`. Donkey art lives in `assets/donkey/`.
 
