@@ -51,5 +51,5 @@ const slots={tail_color:['tail.','dk.tail_'],tail_spots:['tailspot.'],tail_line:
 // groups are cached separately: changing the mane does not redraw the tail/body
 const groups=[{id:'tail',slots:['tail_color','tail_spots','tail_line']},{id:'body',slots:['base','coat','dilution','pattern','marking']},{id:'front',slots:['eyes','body_line']},{id:'mane',slots:['mane_color','mane_spots','mane_line']}];
 const optional=['manespot.','tailspot.','line.','dk.line.','coat.','dk.coat_'];  // missing optional layers are not warnings
-return{canvas:{w:1600,h:1000},files:f,icons,variants:NV,eyeVariants:NE,maneVariants:NM,donkeyEyeVariants:NDE,palette,tint,slots,groups,optional,dirs:{draft:'assets/draft/',show:'assets/show/',pony:'assets/pony/',mule:'assets/mule/'}}})();
+return{canvas:{w:1079,h:787},files:f,icons,variants:NV,eyeVariants:NE,maneVariants:NM,donkeyEyeVariants:NDE,palette,tint,slots,groups,optional,dirs:{draft:'assets/draft/',show:'assets/show/',pony:'assets/pony/',mule:'assets/mule/'}}})();
 if(typeof module!=='undefined')module.exports=MANIFEST;
